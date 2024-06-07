@@ -412,17 +412,17 @@ function createPullRequest(inputs) {
             /* / Configure the committer and author
             core.startGroup('Configuring the committer and author')
             const parsedAuthor = utils.parseDisplayNameEmail(inputs.author)
-            const parsedCommitter = utils.parseDisplayNameEmail(inputs.committer)
+            const parsedCommitter = utils.parseDisplayNameEmail(inputs.committer)*/
             git.setIdentityGitOptions([
-              '-c',
-              `author.name=${parsedAuthor.name}`,
-              '-c',
-              `author.email=${parsedAuthor.email}`,
-              '-c',
-              `committer.name=${parsedCommitter.name}`,
-              '-c',
-              `committer.email=${parsedCommitter.email}`
-            ])
+                '-c',
+                `author.name=github-actions[bot]`,
+                '-c',
+                `author.email=41898282+github-actions[bot]@users.noreply.github.com` /*,
+                '-c',
+                `committer.name=${parsedCommitter.name}`,
+                '-c',
+                `committer.email=${parsedCommitter.email}`*/
+            ]); /*
             core.info(
               `Configured git committer as '${parsedCommitter.name} <${parsedCommitter.email}>'`
             )
@@ -561,11 +561,9 @@ class GitCommandManager {
             return new GitCommandManager(workingDirectory, gitPath);
         });
     }
-    /*
-    setIdentityGitOptions(identityGitOptions: string[]): void {
-      this.identityGitOptions = identityGitOptions
+    setIdentityGitOptions(identityGitOptions) {
+        this.identityGitOptions = identityGitOptions;
     }
-    */
     checkout(ref, startPoint) {
         return __awaiter(this, void 0, void 0, function* () {
             const args = ['checkout', '--progress'];

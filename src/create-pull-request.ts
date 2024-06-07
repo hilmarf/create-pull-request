@@ -155,17 +155,17 @@ export async function createPullRequest(inputs: Inputs): Promise<void> {
     /* / Configure the committer and author
     core.startGroup('Configuring the committer and author')
     const parsedAuthor = utils.parseDisplayNameEmail(inputs.author)
-    const parsedCommitter = utils.parseDisplayNameEmail(inputs.committer)
+    const parsedCommitter = utils.parseDisplayNameEmail(inputs.committer)*/
     git.setIdentityGitOptions([
       '-c',
-      `author.name=${parsedAuthor.name}`,
+      `author.name=github-actions[bot]`,
       '-c',
-      `author.email=${parsedAuthor.email}`,
+      `author.email=41898282+github-actions[bot]@users.noreply.github.com` /*,
       '-c',
       `committer.name=${parsedCommitter.name}`,
       '-c',
-      `committer.email=${parsedCommitter.email}`
-    ])
+      `committer.email=${parsedCommitter.email}`*/
+    ])/*
     core.info(
       `Configured git committer as '${parsedCommitter.name} <${parsedCommitter.email}>'`
     )
