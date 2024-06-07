@@ -95,6 +95,7 @@ describe('create-or-update-branch tests', () => {
 
   beforeAll(async () => {
     git = await GitCommandManager.create(REPO_PATH)
+    /* 
     git.setIdentityGitOptions([
       '-c',
       'author.name=Author Name',
@@ -105,6 +106,7 @@ describe('create-or-update-branch tests', () => {
       '-c',
       'committer.email=committer@example.com'
     ])
+    */
     // Check there are no local changes that might be destroyed by running these tests
     expect(await git.isDirty(true)).toBeFalsy()
     // Fetch the default branch

@@ -152,7 +152,7 @@ export async function createPullRequest(inputs: Inputs): Promise<void> {
       `Pull request branch to create or update set to '${inputs.branch}'`
     )
 
-    // Configure the committer and author
+    /* / Configure the committer and author
     core.startGroup('Configuring the committer and author')
     const parsedAuthor = utils.parseDisplayNameEmail(inputs.author)
     const parsedCommitter = utils.parseDisplayNameEmail(inputs.committer)
@@ -173,6 +173,7 @@ export async function createPullRequest(inputs: Inputs): Promise<void> {
       `Configured git author as '${parsedAuthor.name} <${parsedAuthor.email}>'`
     )
     core.endGroup()
+    */
 
     // Create or update the pull request branch
     core.startGroup('Create or update the pull request branch')

@@ -21,9 +21,11 @@ export class GitCommandManager {
     return new GitCommandManager(workingDirectory, gitPath)
   }
 
+  /*
   setIdentityGitOptions(identityGitOptions: string[]): void {
     this.identityGitOptions = identityGitOptions
   }
+  */
 
   async checkout(ref: string, startPoint?: string): Promise<void> {
     const args = ['checkout', '--progress']
